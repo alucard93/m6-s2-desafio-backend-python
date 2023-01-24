@@ -18,15 +18,28 @@
                 <th title="Dona da loja">Dono</th>
                 <th title="Nome da loja">Loja</th>
             </tr>
+
+            {% for transaction in object_list %}
+
             <tr>
-                <td>Financiamento</td>
-                <td>09/04/2022</td>
-                <td>R$ 500,00</td>
-                <td>15311742720</td>
-                <td>00:03:00</td>
-                <td>Marcus Vinicius</td>
-                <td>Lojas Americanas</td>
+                <td>{transaction.type}</td>
+                <td>{transaction.date}</td>
+                <td>{transaction.value}</td>
+                <td>{transaction.cpf}</td>
+                <td>{transaction.card}</td>
+                <td>{transaction.hour}</td>
+                <td>{transaction.owner}</td>
+                <td>{transaction.shop}</td>
             </tr>
+
+            {% empty %}
+
+            <tr>
+                <td>Nenhum campo adicionado.</td>
+            </tr>
+            
+            {% endfor %}
+
         </table>
         <h2>Saldo Total: R$ 1500,00</h2>
     </section>

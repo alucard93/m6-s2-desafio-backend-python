@@ -125,7 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 # Arquivos de Media/upload
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 # Configuração para enviar para o mesmo diretório do projeto
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
@@ -137,3 +141,5 @@ MEDIA_URL = "/uploads/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

@@ -1,6 +1,9 @@
 from django.urls import path
-from . import views
+from .views import IndexView, UploadView
 
 urlpatterns = [
-    path('cnab/', views.cnab, name='cnab')
+        # uri  /   nome da view      / nome para linkar
+    path('', IndexView.as_view(), name='cnab'),
+    path('transactions/', UploadView.as_view(), name='transactions'),
+
 ]

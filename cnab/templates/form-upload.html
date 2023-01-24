@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,11 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafio 2</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
 </head>
 <body>
-    <form action="{% url 'cnab' %}" method="post" enctype="multipart/form-data">
+    <h1>Click em Upload para Subir o Arquivo</h1>
+    <form action="{% url 'transactions' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <p> {{  }} </p>
+        <p> {{ form.file }} </p>
         <input type="submit" value="upload" />
     </form>
 </body>
