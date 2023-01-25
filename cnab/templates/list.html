@@ -14,7 +14,7 @@
     
             <span class="fw-bold">Pesquisar: </span>   
     
-            <input name="obj" type="text" value="{{request.GET.obj}}" class="form-control" placeholder="pesquisar pelo nome do produto..."> 
+            <input name="obj" type="text" value="{{request.GET.obj}}" class="form-control" placeholder="pesquisar pelo nome da loja..."> 
         
             {% if request.GET.obj %}   
             <a class="btn btn-primary" href="{% url 'cnab-list' %}">Reset</a>                 
