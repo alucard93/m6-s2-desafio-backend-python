@@ -19,29 +19,22 @@
                 <th title="Nome da loja">Loja</th>
             </tr>
 
-            {% for transaction in object_list %}
-
+            {% for item in data %}
             <tr>
-                <td>{transaction.type}</td>
-                <td>{transaction.date}</td>
-                <td>{transaction.value}</td>
-                <td>{transaction.cpf}</td>
-                <td>{transaction.card}</td>
-                <td>{transaction.hour}</td>
-                <td>{transaction.owner}</td>
-                <td>{transaction.shop}</td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.data }}</td>
+                <td>{{ item.value }}</td>
+                <td>{{ item.cpf }}</td>
+                <td>{{ item.card }}</td>
+                <td>{{ item.hour }}</td>
+                <td>{{ item.owner }}</td>
+                <td>{{ item.shop }}</td>
             </tr>
 
-            {% empty %}
-
-            <tr>
-                <td>Nenhum campo adicionado.</td>
-            </tr>
             
             {% endfor %}
 
         </table>
-        <h2>Saldo Total: R$ 1500,00</h2>
     </section>
 </body>
 </html>

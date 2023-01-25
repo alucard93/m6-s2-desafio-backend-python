@@ -8,7 +8,7 @@ class Upload(models.Model):
 
 class Cnab(models.Model):
     type = models.CharField(max_length=21)
-    date = models.CharField(max_length=24)
+    data = models.CharField(max_length=24)
     value = models.IntegerField()
     cpf = models.CharField(max_length=11)
     card = models.CharField(max_length=24)
