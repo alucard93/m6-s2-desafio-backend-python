@@ -9,28 +9,27 @@
     <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
 </head>
 <body >
-    <section>
-        <table>
+    <section class="container">
+        <table class="table">
             <tr>
-                <th title="Tipo da transação">Tipo</th>
-                <th title="Data da ocorrência">Data</th>
-                <th title="Valor da Movimentação">Valor</th>
-                <th title="CPF do beneficiário">Cpf</th>
-                <th title="Hora da ocorrência">Hora</th>
-                <th title="Dona da loja">Dono</th>
-                <th title="Nome da loja">Loja</th>
+                <th scope="col" title="Tipo da transação">Tipo</th>
+                <th scope="col" title="Data da ocorrência">Data</th>
+                <th scope="col" title="Valor da Movimentação">Valor</th>
+                <th scope="col" title="CPF do beneficiário">Cpf</th>
+                <th scope="col" title="Hora da ocorrência">Hora</th>
+                <th scope="col" title="Dona da loja">Dono</th>
+                <th scope="col" title="Nome da loja">Loja</th>
             </tr>
 
             {% for item in data %}
             <tr>
-                <td>{{ item.type }}</td>
-                <td>{{ item.data }}</td>
-                <td>{{ item.value }}</td>
-                <td>{{ item.cpf }}</td>
-                <td>{{ item.card }}</td>
-                <td>{{ item.hour }}</td>
-                <td>{{ item.owner }}</td>
-                <td>{{ item.shop }}</td>
+                <td scope="row">{{ item.type }}</td>
+                <td scope="row">{{ item.data }}</td>
+                <td scope="row">{{ item.value }}</td>
+                <td scope="row">{{ item.cpf }}</td>
+                <td scope="row">{{ item.hour }}</td>
+                <td scope="row">{{ item.owner }}</td>
+                <td scope="row">{{ item.shop }}</td>
             </tr>
 
             
