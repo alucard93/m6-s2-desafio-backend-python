@@ -26,7 +26,7 @@ def index_file(request):
             "9": "Aluguel",
         }
 
-        with open(f"uploads/{str(cnab_file.file)}", "r") as read_file:
+        with open(f"uploads/{str(cnab_file.file)}", "r", encoding="utf-8" ) as read_file:
             for file_line in read_file:
                 cnab_list.append(file_line)
 
