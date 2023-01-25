@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import UploadForm
 from .models import Upload, Cnab
+from django.core.paginator import Paginator
 
 
 def index_file(request):
@@ -69,3 +70,18 @@ def index_file(request):
     else:
         form = UploadForm()
     return render(request, "form-upload.html", {"form": form})
+
+
+def cnab_list(request):
+    obj = request.GET.get('obj')
+
+    if obj:  
+        cnab = Cnab.objects.filter(shop__icontains=obj)  
+    else:
+        cnab = Cnab.objects.all()   
+        
+    paginator = Paginator(cnab, 10) # mostra 10 produtos por pagina
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, 'list.html', {'page_obj': page_obj})
