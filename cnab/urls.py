@@ -6,5 +6,5 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('cnab/filtro', cnab_list, name='cnab-list'), 
-    path("cnab/", index_file, name='cnab')
+    path("", index_file, name='cnab')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

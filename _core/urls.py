@@ -18,6 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('cnab.urls'))
+    path('', include('cnab.urls'))
     # ( global=api/ ) + ( local= /cnab ) = nome do app e o diretorio (global+local = url) =(api/cnab)
 ]

@@ -14,7 +14,10 @@
     <div class="container">
         <form action="{% url 'cnab' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
+         <div>
             <p> {{ form.file }} </p>
+            <input type="submit" value="upload" />
+         </div>
         </form>
     </div>
     <script src="{% static './js/bootstrap.bundle.js' %}"></script>
