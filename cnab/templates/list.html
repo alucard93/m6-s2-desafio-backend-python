@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Backend</title>
+    <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
+</head>
+<body >
+    <section class="container">
+        <form class="d-flex gap-3 mt-2" action="{% url 'cnab-list' %}" method="GET">          
+    
+            <span class="fw-bold">Pesquisar: </span>   
+    
+            <input name="obj" type="text" value="{{request.GET.obj}}" class="form-control" placeholder="pesquisar pelo nome da loja..."> 
+        
+            {% if request.GET.obj %}   
+            <a class="btn btn-primary" href="{% url 'cnab-list' %}">Reset</a>                 
+            {% endif %}  
+        
+            <button type="submit" class="btn btn-primary">Buscar</button> 
+            <a class="btn btn-primary" href="{% url 'cnab' %}">Voltar</a>
+        
+        </form> 
+        
+        <table class="table">
+            <tr>
+                <th scope="col" title="Tipo da transação">Tipo</th>
+                <th scope="col" title="Data da ocorrência">Data</th>
+                <th scope="col" title="Valor da Movimentação">Valor</th>
+                <th scope="col" title="CPF do beneficiário">Cpf</th>
+                <th scope="col" title="Hora da ocorrência">Hora</th>
+                <th scope="col" title="Dona da loja">Dono</th>
+                <th scope="col" title="Nome da loja">Loja</th>
+            </tr>
+            
+
+            {% for item in page_obj %}
+            <tr>
+                <td scope="row">{{ item.type }}</td>
+                <td scope="row">{{ item.data }}</td>
+                <td scope="row">{{ item.value }}</td>
+                <td scope="row">{{ item.cpf }}</td>
+                <td scope="row">{{ item.hour }}</td>
+                <td scope="row">{{ item.owner }}</td>
+                <td scope="row">{{ item.shop }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="6">Valor Total:</td>
+                <td>{{ valor_total }}</td>
+            </tr>
+        </table>
+        {% include 'pagination.html' %}
+    </section>
+    <script src="{% static './js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>

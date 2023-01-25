@@ -8,7 +8,7 @@
 <ul>
     <li>Python</li>
     <li>Django</li>
-    <li>Django Rest Framework</li>
+    <li>Bootstrap</li>
 </ul>
 
 
@@ -49,3 +49,20 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+### A aplicação possui 2 endpoint
+
+```
+http://127.0.0.1:8000 - default
+```
+- Utilizada para demostrar todos os dados.
+- Possui um botão que redireciona para a url que realiza o somatório e a filtragem
+```
+http://127.0.0.1:8000/cnab/filtro
+```
+ - Utilizada para realização dos filtros e para apresentação do somatório por loja.
+## Possui as seguintes funcionalidade:
+- Um campo para pesquisa que filtra com base no nome da loja e com base na pesquisa retorna o cálculo das operações
+- Um botão para voltar a tela default
+- Paginação ao final da página
+
