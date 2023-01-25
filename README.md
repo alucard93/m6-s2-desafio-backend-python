@@ -8,6 +8,7 @@
 <ul>
     <li>Python</li>
     <li>Django</li>
+    <li>Bootstrap</li>
 </ul>
 
 
@@ -52,6 +53,11 @@ python manage.py runserver
 ### A aplicação possui 2 endpoint
 
 ```
-http://127.0.0.1:8000/api/cnab/
-http://127.0.0.1:8000/api/cnab/filtro
+http://127.0.0.1:8000 - default
 ```
+
+```
+http://127.0.0.1:8000/cnab/filtro
+```
+ - Utilizada para realização dos filtros e para apresentação do somatório por loja
+
