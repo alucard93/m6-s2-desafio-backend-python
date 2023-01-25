@@ -10,7 +10,21 @@
 </head>
 <body >
     <section class="container">
-        <a class=" btn form-control btn btn-primary" href="{% url 'cnab-list' %}">Filtro e Soma Click Aqui</a>
+        <form class="d-flex gap-3 mt-2" action="{% url 'cnab-list' %}" method="GET">          
+    
+            <span class="fw-bold">Pesquisar: </span>   
+    
+            <input name="obj" type="text" value="{{request.GET.obj}}" class="form-control" placeholder="pesquisar pelo nome do produto..."> 
+        
+            {% if request.GET.obj %}   
+            <a class="btn btn-primary" href="{% url 'cnab-list' %}">Reset</a>                 
+            {% endif %}  
+        
+            <button type="submit" class="btn btn-primary">Buscar</button> 
+            <a class="btn btn-primary" href="{% url 'cnab' %}">Voltar</a>
+        
+        </form> 
+        
         <table class="table">
             <tr>
                 <th scope="col" title="Tipo da transação">Tipo</th>
@@ -21,8 +35,9 @@
                 <th scope="col" title="Dona da loja">Dono</th>
                 <th scope="col" title="Nome da loja">Loja</th>
             </tr>
+            
 
-            {% for item in data %}
+            {% for item in page_obj %}
             <tr>
                 <td scope="row">{{ item.type }}</td>
                 <td scope="row">{{ item.data }}</td>
@@ -33,8 +48,12 @@
                 <td scope="row">{{ item.shop }}</td>
             </tr>
             {% endfor %}
-
+            <tr>
+                <td colspan="6">Valor Total:</td>
+                <td>{{ valor_total }}</td>
+            </tr>
         </table>
+        {% include 'pagination.html' %}
     </section>
     <script src="{% static './js/bootstrap.bundle.js' %}"></script>
 </body>
