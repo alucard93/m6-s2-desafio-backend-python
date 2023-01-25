@@ -34,6 +34,7 @@
                 <th scope="col" title="Dona da loja">Dono</th>
                 <th scope="col" title="Nome da loja">Loja</th>
             </tr>
+            
 
             {% for item in page_obj %}
             <tr>
@@ -46,7 +47,10 @@
                 <td scope="row">{{ item.shop }}</td>
             </tr>
             {% endfor %}
-
+            <tr>
+                <td colspan="6">Valor Total:</td>
+                <td>{{ valor_total }}</td>
+            </tr>
         </table>
         {% include 'pagination.html' %}
     </section>

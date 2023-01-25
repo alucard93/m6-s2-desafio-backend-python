@@ -1,0 +1,29 @@
+body {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	background-color: black;
+}
+
+p {
+    display: block;
+	width: 60vw;
+	max-width: 350px;
+	margin: 0 auto;
+	background-color: slateblue;
+	border-radius: 2px;
+	font-size: 1em;
+	line-height: 2.5em;
+	text-align: center;
+}
+
+p:hover {
+	background-color: cornflowerblue;
+}
+
+p:active {
+	background-color: mediumaquamarine;
+}

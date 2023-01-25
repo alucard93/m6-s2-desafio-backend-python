@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .forms import UploadForm
 from .models import Upload, Cnab
 from django.core.paginator import Paginator
-
+from django.db.models import Sum
 
 def index_file(request):
     if request.method == "POST":
@@ -44,7 +44,7 @@ def index_file(request):
             second = item[46:48]
             owner = item[48:62]
             shop = item[62:81]
-            type = types_transactions.get(type, "tipo não identificado")
+            type = types_transactions.get(type, "type não identificado")
 
             data = f"{day}/{month}/{year}"
             value = int(value) / 100
@@ -74,14 +74,22 @@ def index_file(request):
 
 def cnab_list(request):
     obj = request.GET.get('obj')
-
+    valor_total = 0
     if obj:  
-        cnab = Cnab.objects.filter(shop__icontains=obj)  
+        cnab = Cnab.objects.filter(shop__icontains=obj)
+        for c in cnab: 
+            if c.type in ['Boleto' , 'Financiamento', 'Aluguel']: 
+                valor_total -= c.value 
+            elif c.type in ['Débito', 'Crédito', 'Empréstimo', 'Vendas', 'TED', 'DOC']: 
+                valor_total += c.value
     else:
         cnab = Cnab.objects.all()   
-        
-    paginator = Paginator(cnab, 10) # mostra 10 produtos por pagina
+    
+    # paginação
+    paginator = Paginator(cnab, 15) # mostra 15 transações por pagina
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
-    return render(request, 'list.html', {'page_obj': page_obj})
+    return render(request, 'list.html', {'page_obj': page_obj, 'valor_total': valor_total })
+
+

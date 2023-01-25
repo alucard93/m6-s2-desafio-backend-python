@@ -8,7 +8,6 @@
 <ul>
     <li>Python</li>
     <li>Django</li>
-    <li>Django Rest Framework</li>
 </ul>
 
 
@@ -48,4 +47,11 @@ python manage.py migrate
 
 ```
 python manage.py runserver
+```
+
+### A aplicação possui 2 endpoint
+
+```
+http://127.0.0.1:8000/api/cnab/
+http://127.0.0.1:8000/api/cnab/filtro
 ```
