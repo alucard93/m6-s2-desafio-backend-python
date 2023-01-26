@@ -37,6 +37,10 @@ pip install -r requirements.txt
 ```
 <br>
 
+## OBS:
+```
+- Verifique se dentro do app cnab se encontra no diretório migrations o arquivo 0001_initial.py caso não esteja execute o comando python manage.py makemigrations
+```
 ### Execute as migrações
 
 ```
